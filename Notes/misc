@@ -1,0 +1,34 @@
+# while True:
+#     players.player1.Action()
+#     write("\n",players.player1.opponent.name,"'s HP :",players.player1.opponent.hp,"\n")
+#     players.player1.opponent.Enemy_turn()
+
+
+#819.17.02.2019
+#ctrl c alows you to exit the game
+#finish limit for enhance
+#fix problem with enhance effectcount going down when not in use (omegaArts.active)#
+#think about stacking enhance
+#start with elemental magic
+#test infernix by using it and selecting it in omega arts#
+#build a system that allow the enemy to pick random magic from a list
+
+#-------------------#
+#add color (cuz i said to be a good boy and add colour for uncle thomas)
+#self.color for monster,hero, stage (list)
+# Player name (Green) Monster should be (red) Anything to do with location or how far away should be like narrator (blue, yellow, ect) 
+#anything to do with health (players health) should be (green)
+#anything to do with health ect for monster (red)
+
+#^ just a few ideas on what colours to add
+ 
+#print("\033[0;37;32m player (green) \033[0;37;40m")
+#print("\033[0;37;31m Monster (red) \033[0;37;40m")
+#print("\033[0;37;31m (red) whatever you want here to be written \033[0;37;40m")
+
+
+
+#print("\033[0;37;30m Monster (red) \033[0;37;40m")
+#print("\033[0;37;2m Narrator: \033[0;37;40m")
+#module, write, enter escape code auomatically adds white in write
+#try

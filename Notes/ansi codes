@@ -1,0 +1,33 @@
+\033[1;37;38m
+1=style
+37=text color
+38=background color
+
+style
+0=normal
+1=bold
+2=dim
+3=italics
+4=underline
+
+text color
+black(almost)=30
+red=31
+green=32
+orange=33
+blue=34
+purple=35
+cyan=36
+grey=37
+white=38
+
+background color
+black(almost)=40
+neon pink=41
+green=42
+orange=43
+blue=44
+purple=45
+cyan=46
+grey=47
+none=48
