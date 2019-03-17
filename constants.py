@@ -1,4 +1,6 @@
 import pygame
+import threading
+import loading
 DULL_DAGGER=0
 ANCIENT_BOW=1
 RUSTY_SWORD=2
@@ -39,6 +41,7 @@ RPG=" RPG V3_1.txt"
 
 PLAY=True
 STOP=False
+done=False
 
 try:
     pygame.init()
@@ -47,6 +50,7 @@ try:
     REPL=False
 except pygame.error:
     REPL=True
+
 if REPL:
     NONE="\033[0"
     BOLD="\033[1"

@@ -146,7 +146,7 @@ class Player:
             oppAbb={
                 self.opponent.name:self.opponent.abb
             }#opponent abbreviation
-            print("{}MP: {}   HP: {}    YEILD: {}      {}: {}{}{} ".format(DIM+GREEN+NONEB,self.mp,self.hp,self.money,oppAbb.get(self.opponent.name,"???"),DIM+RED+NONEB,self.opponent.hp,NORMAL))
+            print("{}MP: {}   HP: {}          {}: {}{}{} ".format(DIM+GREEN+NONEB,self.mp,self.hp,self.money,oppAbb.get(self.opponent.name,"???"),DIM+RED+NONEB,self.opponent.hp,NORMAL))
             if self.isFrozen==False and self.isDizzy==False:
                 commands=input("☾ ⋆*Attack/Defend/Omega Arts/Items⋆*･ﾟ: ".format(self.color))
                 commands=commands.upper()
@@ -191,6 +191,9 @@ class Player:
     def Lose_mp(self,playerMpLoss):
         playerMpLoss=(playerMpLoss-self.armour.mp)
         self.mp=self.mp-playerMpLoss
-    
+    def Lose_money(self,loss):
+        self.money=self.money-loss
+    def Add_money(self,gain):
+        self.money=self.money+gain
 # player1=Player(120,500)#omega arts
 #allPlayers=[player1]

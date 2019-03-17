@@ -71,13 +71,10 @@ class magic:
           user.Flip(isDizzy=True)
           RNG=randint(1,100)
           money=randint(1,150)
-          print(user.name)
-          print(user.opponent.name)
           if RNG<=100 and money<=user.money:
               write("{} throws {} YIELD towards {} out of confusion".format(user.name,money,user.opponent.name))
-              user.opponent.money+=money
-              user.money-=money
-
+              user.Lose_money(money)
+              user.opponent.Add_money(money)
               return(0)
           else:
               #write("{} is dizzy, {} cannot move!".format(user.name,user.name))

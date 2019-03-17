@@ -4,11 +4,11 @@ from enemies import *
 from weapons import *
 import loading
 from random import randint
-from music import music
+from music import Music
 from constants import *
 import pickle
 from write_text import write
-#logimusic(PLAY,"taizai.wav",-1)
+#Music(PLAY,"perilous_plains.mp3",-1)
 
 reg=login.main()
 

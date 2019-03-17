@@ -4,6 +4,7 @@ from random import randint
 import login
 import enemies
 import players
+import music
 color=BOLD+ORANGE+NONEB
 name=["{}Dull Dagger{}".format(color,NORMAL),"{}Ancient Bow{}".format(color,NORMAL),"{}Rusty Sword{}".format(color,NORMAL),"{}Mossy Warhammer{}".format(color,NORMAL)]
 atk=[9,13,15,16]

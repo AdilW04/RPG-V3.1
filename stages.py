@@ -11,6 +11,7 @@ import win_lose
 import pickle
 import loading
 import threading
+import music
 
 names=["Perilous Plains","Dusty Dunes","Velen","Spagonia Ruins"]
 monsters=[[RAGING_ROACH,ANGRY_ALBATROSS]]#RAGING_ROACH,SERIOUS_SASQUATCH,ANGRY_ALBATROSS
@@ -20,6 +21,8 @@ encounterChances=[[100,69]]#more added as levels get added
 #                 dig/map
 availableTechs=[[HURRIX]]
 difficulty=[[0,2],[1,3],[2,4],[3,5]]
+themes=["perilous_plains.mp3"]
+battleThemes=["battle_a.mp3"]
 class level:
     def __init__(self,i):
         self.name=names[i]
@@ -29,7 +32,10 @@ class level:
         self.encounterChances=encounterChances[i]
         self.availableTechs=availableTechs[i]
         self.difficulty=difficulty[i]
+        self.theme=themes[i]
+        self.battleTheme=battleThemes[i]
     def start(self,player):
+        music.Music(PLAY,self.theme,-1)
         player.weapon=weapons.weapon(DULL_DAGGER,player)
         player.armour=armour.armour(BIKER_JACKET)
         write("You are now in {}{}".format(BOLD+ORANGE+NONEB,self.name))
@@ -55,6 +61,7 @@ class level:
         if encounterRNG<=self.encounterChances[0]:
             monster=self.Create_monster(player)
         #test
+        music.Music(PLAY,self.battleTheme,-1)
         loop=True
         player.activeEffects.clear()
         player.isFrozen=False

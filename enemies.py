@@ -102,7 +102,10 @@ class enemy:
         self.hp=self.hp-damageDealt
     def Get_enemyName(self):
         return(self.name)
-
+    def Lose_money(self,loss):
+        self.money=self.money-loss
+    def Add_money(self,gain):
+        self.money=self.money+gain
 # test=enemy(RAGING_ROACH)
 # testB=enemy(SERIOUS_SASQUATCH)
 
