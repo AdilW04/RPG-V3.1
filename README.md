@@ -1,2 +1,2 @@
 # RPG-V3.1
-rpg game by adil
+A turn based, text based role playing adventure game by adil
