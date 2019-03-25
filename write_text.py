@@ -20,5 +20,5 @@ def write(*arg):
     
     for char in output:
           sys.stdout.write(char)
-          #sys.stdout.flush()
-          #sleep(0.03)
+          sys.stdout.flush()
+          sleep(0.04)

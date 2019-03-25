@@ -21,8 +21,10 @@ def Battle(player,opponent):
     while True:
         if win_lose.Win_lose(player)==False:
             break
-        player.Action()
+        else:
+            player.Action()
         if win_lose.Win_lose(player)==False:
             break
-        opponent.Enemy_turn()
+        else:
+            opponent.Enemy_turn()
 
