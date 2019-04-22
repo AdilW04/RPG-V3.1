@@ -22,9 +22,12 @@ def Battle(player,opponent):
         if win_lose.Win_lose(player)==False:
             break
         else:
+            print()
             player.Action()
+            player.Sub_turn()
         if win_lose.Win_lose(player)==False:
             break
         else:
+            print()
             opponent.Enemy_turn()
 

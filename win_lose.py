@@ -22,6 +22,7 @@ def Game_over(player):
         
     
 def Win(player):
+    write("{} has been defeated!".format(player.opponent.name))
     write("{}You win!".format (DIM+WHITE+ORANGEB))
     #player.stage.distance=player.stage.distance-random.randint(5,20)#temp
     player.activeEffects.clear()

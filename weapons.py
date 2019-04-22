@@ -5,34 +5,31 @@ import login
 import enemies
 import players
 import music
-color=BOLD+ORANGE+NONEB
-name=["{}Dull Dagger{}".format(color,NORMAL),"{}Ancient Bow{}".format(color,NORMAL),"{}Rusty Sword{}".format(color,NORMAL),"{}Mossy Warhammer{}".format(color,NORMAL)]
+import inventory
 atk=[9,13,15,16]
 miss=[10,16,7,14]
 crit=[12,15,16,20]
 chainCount=[5,6,7,8]
 index=[0,1,2,3,4,5,6,7,8,9,10]
-values=[450,565,608,680]
 
-class weapon:
-    def __init__(self,i,player):
-        self.name=name[i]
+class weapon(inventory.equipables):
+    def __init__(self,i):
+        super().__init__(WEAPONS,i)
+        #self.name=name[i]
         self.atk=atk[i]
         self.ATK=atk[i]
         self.miss=miss[i]
         self.crit=crit[i]
         self.chainCount=0#crit chain
         self.i=index[i]
-        self.value=values[i]
-        self.sellVal=round(values[i]/1.4)
-
-        self.player=player
-    def Attack_enemy(self,*arg):
+        #self.value=values[i]
+        #self.sellVal=round(values[i]/1.4)
+    def Attack_enemy(self,player,*arg):
         global isCrit
-        self.player.loop=False
+        player.loop=False
         self.atk=randint(round(self.atk-(self.atk*0.1)),round(self.atk+(self.atk*0.1)))
         heroName=login.Get_heroName()
-        write(heroName + " uses " + self.name + " to attack " + self.player.opponent.name)
+        write(heroName + " uses " + self.name + " to attack " + player.opponent.name)
         isCrit = False
         missRNG=randint(1,100)
         critRNG=randint(1,100)
@@ -51,14 +48,14 @@ class weapon:
                 self.crit=self.crit+19
             write("You got a critical!")
             isCrit=True
-            self.player.Do_dmg(self.atk*2)
+            player.Do_dmg(self.atk*2)
             
             return()
         else:
             self.chainCount==0
             self.crit=crit[self.i]
             isCrit=False
-            self.player.Do_dmg(self.atk)
+            player.Do_dmg(self.atk)
             return()
         
     def Get_atk(self):

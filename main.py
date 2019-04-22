@@ -1,15 +1,17 @@
 import login
-from enemies import *
-from weapons import *
+import enemies
+import weapons
 import loading
+import armour
 from random import randint
 from music import Music
 from constants import *
 import pickle
 from write_text import write
 import players
+import inventory
 #Music(PLAY,"perilous_plains.mp3",-1)
-
+#looping: method that recieves player objact as parameter is responsible for changing objacts loop attribute
 reg=login.main()
 
 if reg:
@@ -43,9 +45,15 @@ else:
 # playersList[
 #     player1
 # ]
+player1.inventory.Gain_item(CONSUMABLES,POTIONS,OWL_POT,inventory.owlPot)
+weapon=weapons.weapon(DULL_DAGGER)
+player1.inventory.Gain_equipable(WEAPONS,weapon)
+player1.Change_gear(player1.inventory.items[EQUIPPABLES][WEAPONS][DULL_DAGGER])
+armour=armour.armour(CREASED_SHIRT)
+player1.inventory.Gain_equipable(ARMOUR,armour)
+player1.Change_gear(player1.inventory.items[EQUIPPABLES][ARMOUR][CREASED_SHIRT])
+player1.Change_stage(0)
 
-player1.mp+=1000000
-player1.hp+=1000000
 player1.stage.start(player1)
 
 #loading.Loading_animation(5,"Good bye {}LOSER!                                             ".format(BOLD+RED+NONEB),"EXITING GAME, Any unsaved progress will be {}LOST ".format(UNDERLINE+RED+NONEB))

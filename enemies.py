@@ -14,7 +14,7 @@ crit=[11,12,13,8,10,12]
 money=[500,600,800,1200,1250,10000]
 abbs=["{}RR".format(color),"{}CC".format(color),"{}SS".format(color),"{}AA".format(color),"{}OGLD".format(color),"{}BSLK".format(color)]#abreviations
 enemyTechs=[]#variable for techs enemies can use, will change through the game when new techs get unlocked
-mp=[70,70,80,90,80,290]
+mp=[160,160,170,180,190,290]
 class enemy:
     def __init__(self,i,player,techs):
         self.name=name[i]
@@ -49,6 +49,7 @@ class enemy:
     
     def Enemy_turn(self):
       self.atk=self.ATK
+      print(self.atk)
       write("Its {}'s turn now".format(self.name))
       #adds object to list if not in it so no duplicates every enemy turn  
 
@@ -65,13 +66,11 @@ class enemy:
             useEnhanceRNG=randint(1,100)
             for t in self.availableTechs:
                 if t.name=="Enhance":
-                    print("||||",t.effectCounter)
                     if t.effectCounter==0 and useEnhanceRNG<=87:
                         tech=t
 
             if tech==None:
                 tech=choice(self.availableTechs)
-            print(tech.name)
 
             if isinstance(tech,omega_arts.magic):
                 if tech.mp>self.mp:
@@ -82,13 +81,11 @@ class enemy:
                 else:
                     if tech.name == "Enhance" and self.isEnhanced==True:
                         if tech.effectCounter==0:
-                            print("hhaha")
                             self.mp -= tech.mp
                             tech.Use_tech(self,self.opponent)
                             break
 
                         else:
-                            print("waaah")
                             pass
                     else:
                         self.mp -= tech.mp
@@ -102,7 +99,7 @@ class enemy:
     
     
     def Use_tech(self,*args):#accepts an amount of paramaters  
-      self.atk=randint(round(self.atk-(self.atk*0.1)),round(self.atk+(self.atk*0.1)))
+      self.atk=randint(round(self.atk-(self.ATK*0.1)),round(self.atk+(self.ATK*0.1)))
       missRNG=randint(1,100)
       critRNG=randint(1,100)
       global isCrit
@@ -129,9 +126,7 @@ class enemy:
     #     else:
     #         return(self.atk)
     def Do_dmg(self,damage,*args):
-        print("/",damage)
         damage=round(damage*self.opponent.stage.difficulty[0][1])
-        print("//",damage)
         if self.isEnhanced==True:
             damage=damage*3
         #might add more stuff that effects damage

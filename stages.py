@@ -17,12 +17,12 @@ import sys
 from time import sleep
 
 names=["Perilous Plains","Dusty Dunes","Mythril","Rustic Ruins"]
-monsters=[[RAGING_ROACH,ANGRY_ALBATROSS],[ANGRY_ALBATROSS,CRUMBLIN_CANNON],[ANGRY_ALBATROSS,CRUMBLIN_CANNON,SERIOUS_SASQUATCH],[BASALISK]]#RAGING_ROACH,SERIOUS_SASQUATCH,ANGRY_ALBATROSS
+monsters=[[RAGING_ROACH,ANGRY_ALBATROSS,SERIOUS_SASQUATCH,CRUMBLIN_CANNON],[ANGRY_ALBATROSS,CRUMBLIN_CANNON],[ANGRY_ALBATROSS,CRUMBLIN_CANNON,SERIOUS_SASQUATCH],[BASALISK]]#RAGING_ROACH,SERIOUS_SASQUATCH,ANGRY_ALBATROSS
 unlockableWeapons=[[ANCIENT_BOW,MOSSY_WARHAMMER],[ANCIENT_BOW,MOSSY_WARHAMMER,RUSTY_SWORD],[ANCIENT_BOW,MOSSY_WARHAMMER,RUSTY_SWORD],[ANCIENT_BOW,MOSSY_WARHAMMER,RUSTY_SWORD]]
 distances=[23,28,32,36]#distance to end of level
 encounterChances=[[85,65],[87,67],[90,70],[94,74]]#more added as levels get added
 #                 dig/map
-availableTechs=[[ENHANCE,INFERNIX],[ENHANCE,CHILLIX,INFERNIX],[ENHANCE,CHILLIX,HURRIX,INFERNIX],[ENHANCE,INFERNIX]]
+availableTechs=[[ENHANCE,INFERNIX],[ENHANCE,CHILLIX,INFERNIX],[ENHANCE,CHILLIX,HURRIX,INFERNIX],[ENHANCE,INFERNIX,HURRIX,CHILLIX]]
 difficulty=[[[1,2],[0,1]],[[1,3],[0,2]],[[2,4],[1,2]],[[3,5],[2,4]]]
 themes=["perilous_plains.mp3","perilous_plains.mp3","perilous_plains.mp3","shop.mp3"]
 battleThemes=["battle_a.mp3","battle_b.mp3","battle_b.mp3","battle_c.mp3"]
@@ -40,21 +40,19 @@ class level:
         self.battleTheme=battleThemes[i]
     def start(self,player):
         music.Music(PLAY,self.theme,-1)
-        player.weapon=weapons.weapon(DULL_DAGGER,player)
-        player.armour=armour.armour(BIKER_JACKET)
         write("You are now in {}{}".format(BOLD+ORANGE+NONEB,self.name))
         write("You are {}{} KM{} away from the next portal".format(BOLD+ORANGE+NONEB,self.distance,NORMAL))
-        write()
         unrecognised.loop=True
         while unrecognised.loop==True:
             unrecognised.loop=False
+            print()
             print("{}HP: {}   MP: {}   AR: {}   WP: {}   YEILD: {}{}".format(ITALICS+WHITE+NONEB,player.hp,player.mp,player.armour.name,player.weapon.name,player.money,NORMAL))
-            command=input("☾ ⋆* <1>Dig For Treasure/<2>Advance Forward/<3>Inventory/<4>Save and Exit⋆*･ﾟ:↓ \n")
+            command=input("<1>Dig For Treasure/<2>Advance Forward/<3>Save and Exit↓ \n")
             command=command.upper()
             commands={
                 "1":self.dig,
                 "2":self.forward,
-                "4":pickle.dump
+                "3":pickle.dump
             }
             f=open(player.name+RPG,"wb")
             if command=="4":
@@ -62,7 +60,7 @@ class level:
             commands.get(command,unrecognised.Invalid)(player,f)
     def forward(self,player,*args):
         write("{} moves forward along the trail....".format (player.name))
-        for i in range (3):
+        for i in range (0):
             sys.stdout.write(".")
             sys.stdout.flush()
             sleep(0.5)
@@ -85,7 +83,7 @@ class level:
     def dig(self,player,*args):
         encounterRNG=random.randint(1,100)
         write("\n{} digs for treasure...".format(player.name))
-        for i in range (3):
+        for i in range (0):
             sys.stdout.write(".")
             sys.stdout.flush()
             sleep(0.5)
@@ -129,7 +127,7 @@ class level:
         monster=enemies.enemy(monsterSpecies,player,monstersProperties)
         player.opponent=monster
         player.opponent.hp+=hpBonus
-        player.opponent.ATK+=hpBonus
+        player.opponent.ATK+=atkBonus
 
 
         desc=""
