@@ -12,7 +12,7 @@ elements=[None,"FIRE","WIND","ICE","LIGHTNING"]
 effectNames=["ENHANCED","BURN","DIZZINESS","FREEZE","STUN"]
 atk=[0,20,40,60,60]
 mp=[30,40,55,50,75]
-effectChances=[0,45,23,20,50]
+effectChances=[0,56,48,39,37]
 effectCounters=[[2,3],[2,3],[1,2],[2,3],[2,4]]
 techTypes=["statBuff","offensive","statDebuff","statDebuff","statDebuff"]
 properties=["Enhancing","Fire Breathing","Hurricane Conjuring","Ice Manipulating","Lightning Producing"]#for enemy
@@ -77,7 +77,7 @@ class magic:
               user.opponent.Add_money(money)
               return(0)
           else:
-              #write("{} is dizzy, {} cannot move!".format(user.name,user.name))
+              write("{} is dizzy, {} cannot move!".format(user.name,user.name))
               return(0)
       def Chillix_effect():
           if isinstance(user,enemies.enemy):
@@ -148,9 +148,9 @@ class omegaArts:
             if self.techs.get(tech)==True:
                 sleep(0.1)
                 if self.player.mp>=(tech.mp-self.player.armour.mp):
-                    print("> {} -{}MP".format(tech.name,tech.mp-self.player.armour.mp))
+                    print(">  {} -{}MP".format(tech.name,tech.mp-self.player.armour.mp))
                 else:
-                    print("{}> {} -{}MP{}".format(NONE+GREY+NONEB,tech.name,tech.mp-self.player.armour.mp,NORMAL))
+                    print("{}>  {} -{}MP{}".format(NONE+GREY+NONEB,tech.name,tech.mp-self.player.armour.mp,NORMAL))
                 sleep(0.1)
         print("> BACK")
         sleep(0.1)

@@ -1,6 +1,7 @@
 import sys
 from time import sleep
 from constants import *
+import pygame
 try:
     pygame.init()
     pygame.display.set_mode((1,1))
@@ -20,5 +21,5 @@ def write(*arg):
     
     for char in output:
           sys.stdout.write(char)
-          sys.stdout.flush()
-          sleep(0.04)
+          #sys.stdout.flush()
+          #sleep(0.04)

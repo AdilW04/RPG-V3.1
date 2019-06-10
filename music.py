@@ -2,6 +2,7 @@ import pygame
 from time import sleep
 pygame.init()
 def Music(play,*args):
+    pass
     try:
         pygame.display.set_mode((1,1))
     except pygame.error:
@@ -12,10 +13,4 @@ def Music(play,*args):
         pygame.mixer.music.play(args[1])
     if play==False:
         pygame.mixer.music.stop()
-# def Sound(sound):
-#     try:
-#         pygame.display.set_mode((1,1))
-#     except pygame.error:
-#         return()
-#     sound=pygame.mixer.Sound(sound)
-#     sound.play()
+

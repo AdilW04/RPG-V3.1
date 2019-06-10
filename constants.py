@@ -36,6 +36,13 @@ DUSTY_DUNES=1
 MYTHRIL=2
 RUSTIC_RUINS=3
 
+OWL_POT=0
+NIGHT_POT=1
+PHEO_POT=2
+OWL_DEC=0
+NIGHT_DEC=1
+PHEO_DEC=2
+
 LOCATION=""#//home//runner//save_files//"#folder containing savefiles
 RPG=" RPG V3_1.txt"
 
@@ -50,7 +57,6 @@ try:
     REPL=False
 except pygame.error:
     REPL=True
-
 if REPL:
     NONE="\033[0"
     BOLD="\033[1"
@@ -110,7 +116,15 @@ else:
 
     NORMAL=""
 
+CONSUMABLES=0
+MATERIALS=2
+EQUIPPABLES=1
 
+POTIONS=0
+DECOCTIONS=1
+
+WEAPONS=0
+ARMOUR=1
 
 
 
